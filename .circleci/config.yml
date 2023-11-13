@@ -8,6 +8,9 @@ jobs:
     executor: win/default
 
     steps:
+      - run:
+        name = Display SSH Key
+        command: cat ~/.ssh/id_rsa
       - checkout
       - run: dotnet build
       - run: dotnet test
