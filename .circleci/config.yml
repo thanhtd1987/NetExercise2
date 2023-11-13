@@ -11,12 +11,8 @@ jobs:
       - run:
           name: Display SSH Key
           command: |
-            if (test -f ~/.ssh/id_rsa); then
-              echo "SSH Key Exists"
-              ls -l ~/.ssh/id_rsa
-            else
-              echo "SSH Key Not Found"
-            fi
+            test -f ~/.ssh/id_rsa && echo "SSH Key Exists" || echo "SSH Key Not Found"
+            ls -l ~/.ssh/id_rsa
       - checkout
       - run: dotnet build
       - run: dotnet test
