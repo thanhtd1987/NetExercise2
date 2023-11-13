@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - run:
-        name = Display SSH Key
+        name: Display SSH Key
         command: cat ~/.ssh/id_rsa
       - checkout
       - run: dotnet build
