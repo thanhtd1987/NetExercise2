@@ -11,11 +11,11 @@ jobs:
       - run:
           name: Display SSH Key
           command: |
-            if [[ -f ~/.ssh/id_rsa ]]; then
-              echo "SSH key exist"
+            if (test -f ~/.ssh/id_rsa); then
+              echo "SSH Key Exists"
               ls -l ~/.ssh/id_rsa
             else
-              echo "SSH key not found"
+              echo "SSH Key Not Found"
             fi
       - checkout
       - run: dotnet build
