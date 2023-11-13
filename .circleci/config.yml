@@ -9,14 +9,14 @@ jobs:
 
     steps:
       - run:
-        name: Display SSH Key
-        command: |
-          if [ -f ~/.ssh/id_rsa ]; then
-            echo "SSH key exist"
-            ls -l ~/.ssh/id_rsa
-          else
-            echo "SSH key not found"
-          fi
+          name: Display SSH Key
+          command: |
+            if [ -f ~/.ssh/id_rsa ]; then
+              echo "SSH key exist"
+              ls -l ~/.ssh/id_rsa
+            else
+              echo "SSH key not found"
+            fi
       - checkout
       - run: dotnet build
       - run: dotnet test
