@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Display SSH Key
           command: |
-            if [ -f ~/.ssh/id_rsa ]; then
+            if [[ -f ~/.ssh/id_rsa ]]; then
               echo "SSH key exist"
               ls -l ~/.ssh/id_rsa
             else
