@@ -15,4 +15,10 @@
   <ItemGroup>
     <ProjectReference Include="..\NetExercise\NetExercise.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Basic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Basic\" />
+  </ItemGroup>
 </Project>

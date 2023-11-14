@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Basic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Basic\" />
+  </ItemGroup>
 </Project>
