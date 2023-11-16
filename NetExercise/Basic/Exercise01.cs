@@ -5,6 +5,8 @@ namespace NetExercise.Basic
     {
         public static int Ucln(int a, int b)
         {
+            if (a < 0) a = -a;
+            if (b < 0) a = -b;
             while (a != 0 && b != 0)
             {
                 if (a > b)
