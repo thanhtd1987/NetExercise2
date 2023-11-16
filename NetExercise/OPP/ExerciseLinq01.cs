@@ -1,12 +1,18 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace NetExercise.OPP
 {
-    class ExerciseLinq01
+    public class ExerciseLinq01
     {
         public List<Fraction> Fractions = new List<Fraction>();
+
+        public ExerciseLinq01(List<Fraction> list)
+        {
+            Fractions.AddRange(list);
+        }
 
         /* 1. get max fraction in list */
         public Fraction GetMax()
@@ -20,34 +26,34 @@ namespace NetExercise.OPP
             return Fractions.Min();
         }
 
-        /* 3. get max fraction in list */
-        public float GetSum()
+        /* 3. get sum fraction in list */
+        public Fraction GetSum()
         {
-            return Fractions.Select(f => (float)f).Sum();
+            return Fractions.Aggregate((acc, x) => acc + x);
         }
 
         /* 4. get multiply fraction in list */
-        public float GetAggregate()
+        public Fraction GetAggregate()
         {
-            return (float)Fractions.Aggregate((acc, x) => acc * x);
+            return Fractions.Aggregate((acc, x) => acc * x);
         }
 
         /* 5. sx giam dan theo gia tri thuc cua Fraction */
-        public void SortByValueDescending()
+        public List<Fraction> SortByValueDescending()
         {
-            Fractions.OrderByDescending(f => (float)f);
+            return Fractions.OrderByDescending(f => (float)f).ToList();
         }
 
         /* 6. sx giam dan theo gia tri cua A cua Fraction */
-        public void SortByAValue()
+        public List<Fraction> SortByAValue()
         {
-            Fractions.OrderBy(f => f.A);
+            return Fractions.OrderBy(f => f.A).ToList();
         }
 
         /* 7. sx giam dan theo gia tri cua B cua Fraction */
-        public void SortByBValueDescending()
+        public List<Fraction> SortByBValueDescending()
         {
-            Fractions.OrderByDescending(f => f.B);
+            return Fractions.OrderByDescending(f => f.B).ToList();
         }
 
         /* 8. lay ra list cac Fraction bi duplicated do giong nhau */
@@ -134,6 +140,7 @@ namespace NetExercise.OPP
 
         public int GetHashCode([DisallowNull] Fraction obj)
         {
+            obj.Minimal();
             // xor de ket hop 2 prop
             return obj.A.GetHashCode() ^ obj.B.GetHashCode();
         }

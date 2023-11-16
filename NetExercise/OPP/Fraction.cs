@@ -4,7 +4,7 @@ using NetExercise.Basic;
 namespace NetExercise.OPP
 {
     /* 1. Implement Fraction class */
-    public class Fraction
+    public class Fraction : IComparable
     {
         public int A { get; private set; }
         public int B { get; private set; }
@@ -68,6 +68,15 @@ namespace NetExercise.OPP
             int ucln = Exercise01.Ucln(A, B);
             A /= ucln;
             B /= ucln;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj != null && obj is Fraction other)
+            {
+                return this < other ? -1 : this > other ? 1 : 0;
+            }
+            return 1;
         }
 
         /* 4. Implement toan tu + - * / */
