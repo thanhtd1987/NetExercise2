@@ -7,7 +7,12 @@ namespace NetExercise.OPP
     public class ExerciseLinq02
     {
 
-        public static List<int> IntegerList = new List<int>();
+        public List<int> IntegerList = new List<int>();
+
+        public ExerciseLinq02(List<int> list)
+        {
+            IntegerList.AddRange(list);
+        }
 
         /* 1. 2. get 3 first max */
         public List<int> Get3Max()
