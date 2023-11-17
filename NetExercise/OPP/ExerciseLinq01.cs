@@ -94,9 +94,15 @@ namespace NetExercise.OPP
 
             return duplicatedList; */
 
-            var grp = Fractions.GroupBy(f => { f.Minimal(); return f; });
-            var resultGrp = grp.Where(grp => grp.Count() > 1);
-            return resultGrp.SelectMany(a => a).ToList(); // flattern and return            
+            // var grp = Fractions.GroupBy(f => { f.Minimal(); return f; });
+            var grp = Fractions.Select(f =>
+            {
+                var temp = new Fraction(f.A, f.B);
+                f.Minimal();
+                return new { value = temp, cond = f };
+            }).GroupBy(a => a.cond);
+            var result = grp.Where(g => g.Count() > 1).Select(g => g.Select(a => a.value));
+            return result.SelectMany(a => a).ToList();
         }
 
         /* 10. tim so luong cac fraction co cung gia tri A */
